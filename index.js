@@ -1,3 +1,5 @@
+'use strict';
+
 const CONSTANT = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二'];
 const TEN_DIGIT = '十';
 
@@ -39,6 +41,22 @@ function dayOfWeekFormat (dayOfWeek) {
   return '星期' + CONSTANT[dayOfWeek];
 }
 
-module.exports = function (date) {
-  return yearFormat(date.getFullYear()) + monthFormat(date.getMonth()) + dayFormat(date.getDate()) + dayOfWeekFormat(date.getDay());
-};
+class DateFormatter {
+  constructor (date) {
+    this.date = date || new Date();
+  }
+
+  fullDate () {
+    return yearFormat(this.date.getFullYear()) + monthFormat(this.date.getMonth()) + dayFormat(this.date.getDate());
+  }
+
+  simpleDate () {
+    return monthFormat(this.date.getMonth()) + dayFormat(this.date.getDate());
+  }
+
+  dayOfWeek () {
+    return dayOfWeekFormat(this.date.getDay());
+  }
+}
+
+module.exports = DateFormatter;
