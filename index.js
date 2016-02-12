@@ -46,12 +46,24 @@ class DateFormatter {
     this.date = date || new Date();
   }
 
-  get fullDate () {
+  get full () {
     return yearFormat(this.date.getFullYear()) + monthFormat(this.date.getMonth()) + dayFormat(this.date.getDate());
   }
 
-  get simpleDate () {
+  get simple () {
     return monthFormat(this.date.getMonth()) + dayFormat(this.date.getDate());
+  }
+
+  get year () {
+    return yearFormat(this.date.getFullYear());
+  }
+
+  get month () {
+    return monthFormat(this.date.getMonth());
+  }
+
+  get day () {
+    return dayFormat(this.date.getDate());
   }
 
   get dayOfWeek () {
