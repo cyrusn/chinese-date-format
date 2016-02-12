@@ -46,15 +46,15 @@ class DateFormatter {
     this.date = date || new Date();
   }
 
-  fullDate () {
+  get fullDate () {
     return yearFormat(this.date.getFullYear()) + monthFormat(this.date.getMonth()) + dayFormat(this.date.getDate());
   }
 
-  simpleDate () {
+  get simpleDate () {
     return monthFormat(this.date.getMonth()) + dayFormat(this.date.getDate());
   }
 
-  dayOfWeek () {
+  get dayOfWeek () {
     return dayOfWeekFormat(this.date.getDay());
   }
 }
