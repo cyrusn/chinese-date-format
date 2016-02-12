@@ -1,0 +1,14 @@
+{
+  "name": "chinese-date-format",
+  "version": "1.0.0",
+  "description": "convert date format to traditional chinese date format",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "keywords": [
+    "date"
+  ],
+  "author": "cyrusn",
+  "license": "MIT"
+}
