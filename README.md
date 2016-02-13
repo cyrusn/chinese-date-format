@@ -1,8 +1,8 @@
-# Chinese Date Format
+# Chinese Date Formatter
 
 ## How to Use
 ``` js
-const Formatter = require('chinese-date-format');
+const Formatter = require('chinese-date-formatter');
 
 const today = new Formatter();
 console.log(today.full);

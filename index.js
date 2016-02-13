@@ -1,13 +1,13 @@
 'use strict';
 
-const CONSTANT = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二'];
+const ChineseNumbers = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九'];
 const TEN_DIGIT = '十';
 
 function yearFormat (year) {
   const result = [];
 
   year.toString().split('').forEach(letter => {
-    result.push(CONSTANT[parseInt(letter, 10)]);
+    result.push(ChineseNumbers[parseInt(letter, 10)]);
   });
 
   result.push('年');
@@ -15,20 +15,23 @@ function yearFormat (year) {
 }
 
 function monthFormat (month) {
-  return CONSTANT[month + 1] + '月';
+  const tenDigit = Math.floor((month + 1) / 10);
+  const firstDigit = (month + 1) % 10;
+
+  return (tenDigit > 0 ? TEN_DIGIT : '') + (firstDigit !== 0 ? ChineseNumbers[firstDigit] : '') + '月';
 }
 
 function dayFormat (day) {
   const tenDigit = Math.floor(day / 10);
-  const result = [];
   const firstDigit = day % 10;
+  const result = [];
 
   if (tenDigit > 0) {
-    result.push((tenDigit > 1 ? CONSTANT[tenDigit] : '') + TEN_DIGIT);
+    result.push((tenDigit > 1 ? ChineseNumbers[tenDigit] : '') + TEN_DIGIT);
   }
 
   if (firstDigit !== 0) {
-    result.push(CONSTANT[firstDigit]);
+    result.push(ChineseNumbers[firstDigit]);
   }
 
   return result.join('') + '日';
@@ -38,7 +41,7 @@ function dayOfWeekFormat (dayOfWeek) {
   if (dayOfWeek === 0) {
     return '星期日';
   }
-  return '星期' + CONSTANT[dayOfWeek];
+  return '星期' + ChineseNumbers[dayOfWeek];
 }
 
 class DateFormatter {
