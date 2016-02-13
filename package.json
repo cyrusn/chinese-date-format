@@ -1,6 +1,6 @@
 {
   "name": "chinese-date-formatter",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple tool to display date in traditional chinese format",
   "main": "index.js",
   "repository": {

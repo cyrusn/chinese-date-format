@@ -1,6 +1,12 @@
 # Chinese Date Formatter
 
-## How to Use
+## Installation
+
+``` bash
+npm install chinese-date-formatter
+```
+
+## Examples
 ``` js
 const Formatter = require('chinese-date-formatter');
 
@@ -18,18 +24,18 @@ console.log(today.day);
 console.log(today.dayOfWeek);
 // 星期六
 
-const someDay = new Formatter(new Date('2014-10-15'));
-console.log(someDay.full);
+const someday = new Formatter(new Date('2014-10-15'));
+console.log(someday.full);
 // 二零一四年十月十五日
-console.log(someDay.simple);
+console.log(someday.simple);
 // 十月十五日
-console.log(someDay.year);
+console.log(someday.year);
 // 二零一四年
-console.log(someDay.month);
+console.log(someday.month);
 // 十月
-console.log(someDay.day);
+console.log(someday.day);
 // 十五日
-console.log(someDay.dayOfWeek);
+console.log(someday.dayOfWeek);
 // 星期三
 
 ```
