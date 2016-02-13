@@ -4,14 +4,10 @@ const ChineseNumbers = ['零', '一', '二', '三', '四', '五', '六', '七', 
 const TEN_DIGIT = '十';
 
 function yearFormat (year) {
-  const result = [];
-
-  year.toString().split('').forEach(letter => {
-    result.push(ChineseNumbers[parseInt(letter, 10)]);
-  });
-
-  result.push('年');
-  return result.join('');
+  return [].map.call(
+    year.toString(),
+    letter => ChineseNumbers[parseInt(letter, 10)]
+  ).join('') + '年';
 }
 
 function monthFormat (month) {
@@ -24,17 +20,18 @@ function monthFormat (month) {
 function dayFormat (day) {
   const tenDigit = Math.floor(day / 10);
   const firstDigit = day % 10;
-  const result = [];
+  let result = '';
 
   if (tenDigit > 0) {
-    result.push((tenDigit > 1 ? ChineseNumbers[tenDigit] : '') + TEN_DIGIT);
+    result += (tenDigit > 1 ? ChineseNumbers[tenDigit] : '') + TEN_DIGIT;
   }
 
   if (firstDigit !== 0) {
-    result.push(ChineseNumbers[firstDigit]);
+    result += ChineseNumbers[firstDigit];
   }
 
-  return result.join('') + '日';
+  result += '日';
+  return result;
 }
 
 function dayOfWeekFormat (dayOfWeek) {
@@ -46,7 +43,16 @@ function dayOfWeekFormat (dayOfWeek) {
 
 class DateFormatter {
   constructor (date) {
-    this.date = date || new Date();
+    if (date === undefined) {
+      date = new Date();
+    } else if (date instanceof Date) {
+      // no-op
+    } else {
+      // convert to date format for other input
+      date = new Date(date);
+    }
+
+    this.date = date;
   }
 
   get full () {

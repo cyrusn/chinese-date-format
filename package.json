@@ -1,8 +1,11 @@
 {
   "name": "chinese-date-formatter",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Simple tool to display date in traditional chinese format",
   "main": "index.js",
+  "engines" : {
+    "node" : ">4.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/cyrusn/chinese-date-formatter"
