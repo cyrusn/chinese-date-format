@@ -1,5 +1,5 @@
 const test = require('tape');
-const Formatter = require('..');
+const Formatter = require('../index');
 
 test('construct with `string`', function (t) {
   // double digit month and day, Sunday

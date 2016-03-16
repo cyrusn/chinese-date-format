@@ -4,6 +4,7 @@
   "description": "Simple tool to display date in traditional chinese format",
   "main": "index.js",
   "scripts": {
+    "build": "babel ./src.js -o index.js",
     "test": "istanbul cover --print detail test/*.js",
     "posttest": "istanbul check-coverage --statement 100 --branch 100"
   },
@@ -22,7 +23,9 @@
   "author": "cyrusn",
   "license": "MIT",
   "devDependencies": {
+    "babel-cli": "^6.6.5",
     "istanbul": "^0.4.2",
-    "tape": "^4.4.0"
+    "tape": "^4.4.0",
+    "uglify-js": "^2.6.2"
   }
 }
